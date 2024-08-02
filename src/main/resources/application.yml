@@ -11,6 +11,12 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      routes:
+        - id: estudantes
+          uri: lb://entudante-service
+          predicates:
+            - Path=/estudante-service/**
+
 
 logging:
   level:

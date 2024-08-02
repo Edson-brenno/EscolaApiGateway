@@ -14,10 +14,10 @@ import java.util.function.Function;
 public class ApiGatewayConfig {
     @Bean
     public RouteLocator apiGatewayRoutes(RouteLocatorBuilder builder) {
-        Function<PredicateSpec, Buildable<Route>> function = p -> p.path("/get").uri("http://httpbin.org");
 
         return builder.routes()
-                .route(function)
+                .route(p -> p.path("/get").uri("http://httpbin.org"))
+                .route(p -> p.path("/estudante-service/**").uri("lb://estudante-service"))
                 .build();
     }
 }
