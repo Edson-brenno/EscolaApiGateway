@@ -5,3 +5,13 @@ spring:
     active: dev
   config:
     import: configserver:http://localhost:8888/
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
