@@ -10,14 +10,14 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.function.Function;
 
-@Configuration
-public class ApiGatewayConfig {
-    @Bean
-    public RouteLocator apiGatewayRoutes(RouteLocatorBuilder builder) {
-
-        return builder.routes()
-                .route(p -> p.path("/get").uri("http://httpbin.org"))
-                .route(p -> p.path("/estudante-service/**").uri("lb://estudante-service"))
-                .build();
-    }
-}
+//@Configuration
+//public class ApiGatewayConfig {
+//    @Bean
+//    public RouteLocator apiGatewayRoutes(RouteLocatorBuilder builder) {
+//
+//        return builder.routes()
+//                .route(p -> p.path("/get").uri("http://httpbin.org"))
+//                .route(p -> p.path("/estudante-service/**").uri("lb://estudante-service"))
+//                .build();
+//    }
+//}

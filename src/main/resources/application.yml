@@ -12,11 +12,18 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: estudantes
-          uri: lb://entudante-service
+        - id: estudante-service
+          uri: lb://estudante-service
           predicates:
-            - Path=/estudante-service/**
-
+            - Path=/students/**
+          filters:
+            - RewritePath=/students/(?<segment>.*), /students/$\{segment}
+        - id: sala-service
+          uri: lb://sala-service
+          predicates:
+            - Path=/salas/**
+          filters:
+            - RewritePath=/salas/(?<segment>.*), /salas/$\{segment}
 
 logging:
   level:
